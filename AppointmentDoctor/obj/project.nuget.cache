@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "6dhzdFhmGEvVVr8caiTbmDpAbISNXOern04CxbCkHBXMRTTBtoIPHrZNfcDSQqAWCSIhQcIsES8mJ6KfBRFl+Q==",
+  "dgSpecHash": "o7ji7yQqCLn8D+FiHu6Sl8OkuByGWy6ZHv9GCO/207fHHDcg+8YhzI6TsjIIvWLfdsnuIeW2sS2C7QUeP3i8vw==",
   "success": true,
   "projectFilePath": "C:\\Users\\vladi\\source\\repos\\AppointmentDoctor\\AppointmentDoctor\\AppointmentDoctor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vladi\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
+    "C:\\Users\\vladi\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
+    "C:\\Users\\vladi\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512",
     "C:\\Users\\vladi\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
     "C:\\Users\\vladi\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0\\microsoft.netcore.platforms.3.0.0.nupkg.sha512",
     "C:\\Users\\vladi\\.nuget\\packages\\microsoft.win32.registry\\4.6.0\\microsoft.win32.registry.4.6.0.nupkg.sha512",

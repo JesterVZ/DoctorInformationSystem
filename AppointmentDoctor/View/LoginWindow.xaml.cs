@@ -31,20 +31,6 @@ namespace AppointmentDoctor.View
         {
             InitializeComponent();
             sQLite = new SQLiteFunctions();
-            RegisterStackPanel.Visibility = Visibility.Hidden;
-        }
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            //BackgroundRectangle.Height = 340;
-            LoginStackPanel.Visibility = Visibility.Hidden;
-            RegisterStackPanel.Visibility = Visibility.Visible;
-        }
-
-        private void RegisterToLoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            //BackgroundRectangle.Height = 220;
-            LoginStackPanel.Visibility = Visibility.Visible;
-            RegisterStackPanel.Visibility = Visibility.Hidden;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -145,6 +131,16 @@ namespace AppointmentDoctor.View
             RegSpecializationStackPanel.Visibility = Visibility.Hidden;
             RegOnHolydayStackPanel.Visibility = Visibility.Hidden;
             RegWorkExperienceStackPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

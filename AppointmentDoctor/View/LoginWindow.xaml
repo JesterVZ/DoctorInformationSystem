@@ -3,92 +3,122 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:AppointmentDoctor.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid>
+        Title="LoginWindow" Height="415" Width="276" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="Main">
+            <Setter Property="Background" Value="#FF0080FF" />
+            <Setter Property="Button.BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Button.Foreground" Value="White" />
 
-        
-        <StackPanel Name="LoginStackPanel" Grid.Column="1" Width="220" Height="180">
-            <StackPanel Margin="0,0,0,20">
-                <TextBlock HorizontalAlignment="Center">Логин</TextBlock>
-                <TextBox Name="LoginTextBox"></TextBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,20">
-                <TextBlock HorizontalAlignment="Center">Пароль</TextBlock>
-                <PasswordBox Name="PasswordTextBox"></PasswordBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,20" HorizontalAlignment="Center">
-                <Button Name="LoginButton" Click="LoginButton_Click" IsDefault="True">Вход</Button>
-            </StackPanel>
-        </StackPanel>
+        </Style>
+        <Style TargetType="Button" x:Key="Close">
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="Button.Foreground" Value="White" />
+            <Setter Property="Button.BorderBrush" Value="{x:Null}"/>
+        </Style>
+    </Window.Resources>
+    <Grid>  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="387*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" MouseDown="Grid_MouseDown">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.993"/>
+                    <GradientStop Color="#FF0080FF"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Button Width="28" Height="28" HorizontalAlignment="Right" Style="{StaticResource Close}" Click="Button_Click">
+                <materialDesign:PackIcon Kind="Power"/>
+            </Button>
+        </Grid>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Вход">
+                <StackPanel Name="LoginStackPanel" Grid.Column="1" Width="220" Height="180">
+                    <StackPanel Margin="0,0,0,20">
+                        <TextBlock HorizontalAlignment="Center">Логин</TextBlock>
+                        <TextBox Name="LoginTextBox"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,20">
+                        <TextBlock HorizontalAlignment="Center">Пароль</TextBlock>
+                        <PasswordBox Name="PasswordTextBox"></PasswordBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20" HorizontalAlignment="Center">
+                        <Button Name="LoginButton" Click="LoginButton_Click" IsDefault="True" Style="{StaticResource Main}" Width="65">Вход</Button>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Регистрация">
+                <StackPanel Name="RegisterStackPanel" Grid.Column="1" Width="220" VerticalAlignment="Center" Visibility="Visible">
+                    <StackPanel Margin="0,0,0,0">
+                        <TextBlock HorizontalAlignment="Center">Логин</TextBlock>
+                        <TextBox Name="RegLoginTextBox"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0">
+                        <TextBlock HorizontalAlignment="Center">ФИО</TextBlock>
+                        <TextBox Name="RegFIOTextBox"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0">
+                        <TextBlock HorizontalAlignment="Center">Возраст</TextBlock>
+                        <TextBox Name="RegAgeTextBox"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0" Name="RegGenderStackPanel">
+                        <TextBlock HorizontalAlignment="Center">Пол</TextBlock>
+                        <ComboBox Name="RegGenderComboBox">
+                            <ComboBoxItem>Мужчина</ComboBoxItem>
+                            <ComboBoxItem>Женщина</ComboBoxItem>
+                            <ComboBoxItem>Другое (рекомендуем записаться к психиатору)</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0" Name="RegSpecializationStackPanel">
+                        <TextBlock HorizontalAlignment="Center">Специальность</TextBlock>
+                        <ComboBox Name="RegSpecializationComboBox">
+                            <ComboBoxItem>Терапевт</ComboBoxItem>
+                            <ComboBoxItem>Уролог</ComboBoxItem>
+                            <ComboBoxItem>Психиатор</ComboBoxItem>
+                            <ComboBoxItem>Хирург</ComboBoxItem>
+                            <ComboBoxItem>Кардиолог</ComboBoxItem>
+                            <ComboBoxItem>Вирусолог</ComboBoxItem>
+                            <ComboBoxItem>Онколог</ComboBoxItem>
 
-        <StackPanel Name="RegisterStackPanel" Grid.Column="1" Width="220" VerticalAlignment="Center">
-            <StackPanel Margin="0,0,0,0">
-                <TextBlock HorizontalAlignment="Center">Логин</TextBlock>
-                <TextBox Name="RegLoginTextBox"></TextBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0">
-                <TextBlock HorizontalAlignment="Center">ФИО</TextBlock>
-                <TextBox Name="RegFIOTextBox"></TextBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0">
-                <TextBlock HorizontalAlignment="Center">Возраст</TextBlock>
-                <TextBox Name="RegAgeTextBox"></TextBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0" Name="RegGenderStackPanel">
-                <TextBlock HorizontalAlignment="Center">Пол</TextBlock>
-                <ComboBox Name="RegGenderComboBox">
-                    <ComboBoxItem>Мужчина</ComboBoxItem>
-                    <ComboBoxItem>Женщина</ComboBoxItem>
-                    <ComboBoxItem>Другое (рекомендуем записаться к психиатору)</ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0" Name="RegSpecializationStackPanel">
-                <TextBlock HorizontalAlignment="Center">Специальность</TextBlock>
-                <ComboBox Name="RegSpecializationComboBox">
-                    <ComboBoxItem>Терапевт</ComboBoxItem>
-                    <ComboBoxItem>Уролог</ComboBoxItem>
-                    <ComboBoxItem>Психиатор</ComboBoxItem>
-                    <ComboBoxItem>Хирург</ComboBoxItem>
-                    <ComboBoxItem>Кардиолог</ComboBoxItem>
-                    <ComboBoxItem>Вирусолог</ComboBoxItem>
-                    <ComboBoxItem>Онколог</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0" Name="RegOnHolydayStackPanel">
+                        <TextBlock HorizontalAlignment="Center">В отпуске?</TextBlock>
+                        <ComboBox Name="RegOnHolydayComboBox">
+                            <ComboBoxItem>Да</ComboBoxItem>
+                            <ComboBoxItem>Нет</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0" Name="RegWorkExperienceStackPanel">
+                        <TextBlock HorizontalAlignment="Center">Опыт работы</TextBlock>
+                        <TextBox Name="RegWorkExperienceTextBox"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0">
+                        <TextBlock HorizontalAlignment="Center">Пароль</TextBlock>
+                        <PasswordBox Name="RegisterPasswordBox"></PasswordBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0">
+                        <TextBlock HorizontalAlignment="Center">Повторите пароль</TextBlock>
+                        <PasswordBox Name="RepeatRegisterPasswordBox"></PasswordBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton Name="DoctorRadioButton" IsChecked="True" Checked="DoctorRadioButton_Checked">Врач</RadioButton>
+                        <RadioButton Name="PatientRadioButton" Checked="PatientRadioButton_Checked">Пациент</RadioButton>
+                        <RadioButton Name="AdminRadioButton">Администратор</RadioButton>
 
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0" Name="RegOnHolydayStackPanel">
-                <TextBlock HorizontalAlignment="Center">В отпуске?</TextBlock>
-                <ComboBox Name="RegOnHolydayComboBox">
-                    <ComboBoxItem>Да</ComboBoxItem>
-                    <ComboBoxItem>Нет</ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0" Name="RegWorkExperienceStackPanel">
-                <TextBlock HorizontalAlignment="Center">Опыт работы</TextBlock>
-                <TextBox Name="RegWorkExperienceTextBox"></TextBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0">
-                <TextBlock HorizontalAlignment="Center">Пароль</TextBlock>
-                <PasswordBox Name="RegisterPasswordBox"></PasswordBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0">
-                <TextBlock HorizontalAlignment="Center">Повторите пароль</TextBlock>
-                <PasswordBox Name="RepeatRegisterPasswordBox"></PasswordBox>
-            </StackPanel>
-            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton Name="DoctorRadioButton" Checked="DoctorRadioButton_Checked">Врач</RadioButton>
-                <RadioButton Name="PatientRadioButton" Checked="PatientRadioButton_Checked">Пациент</RadioButton>
-                <RadioButton Name="AdminRadioButton">Администратор</RadioButton>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                        <Button Click="RegisterVoidButton_Click" IsDefault="True" Style="{StaticResource Main}">Регистрация</Button>
+                    </StackPanel>
+                </StackPanel>
 
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
-                <Button Click="RegisterVoidButton_Click" IsDefault="True">Регистрация</Button>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible" Margin="0,0,0,390">
-            <Button Content="Вход" HorizontalAlignment="Center" Width="100" Height="30" Click="RegisterToLoginButton_Click" />
-            <Button Content="Регистрация" HorizontalAlignment="Center" Width="100" Height="30" Click="RegisterButton_Click"/>
-        </StackPanel>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

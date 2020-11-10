@@ -34,3 +34,5 @@ C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\bin\Debug\netcor
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\AppointmentDoctor.csproj.CopyComplete
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\LoginWindow.g.cs
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\LoginWindow.baml
+C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "AppointmentDoctor/1.0.0": {
         "dependencies": {
+          "MaterialDesignThemes": "3.2.0",
           "System.Data.SQLite": "1.0.113.5"
         },
         "runtime": {
@@ -30,6 +31,25 @@
           "lib/netstandard2.1/EntityFramework.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.300.19.46401"
+          }
+        }
+      },
+      "MaterialDesignColors/1.2.7": {
+        "runtime": {
+          "lib/netcoreapp3.1/MaterialDesignColors.dll": {
+            "assemblyVersion": "1.2.7.1979",
+            "fileVersion": "1.2.7.1979"
+          }
+        }
+      },
+      "MaterialDesignThemes/3.2.0": {
+        "dependencies": {
+          "MaterialDesignColors": "1.2.7"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll": {
+            "assemblyVersion": "3.2.0.1979",
+            "fileVersion": "3.2.0.1979"
           }
         }
       },
@@ -206,6 +226,20 @@
       "sha512": "sha512-mEvhoXscTyLFMcnbLzKlbWdx6N8fCY2IMe4drjUTMFqOqI4KThnTPXr1m50oXDJAn5PvCy2e90IcwN/OxkJUjg==",
       "path": "entityframework/6.3.0",
       "hashPath": "entityframework.6.3.0.nupkg.sha512"
+    },
+    "MaterialDesignColors/1.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e+shDlaSAJcuTArqtfWjVUgAOlwQlgWq8akkzCGe1MvfV1ozmOqqXyWxg5w0vC/3/KZ84wnPUJeI1wzEpI0uJQ==",
+      "path": "materialdesigncolors/1.2.7",
+      "hashPath": "materialdesigncolors.1.2.7.nupkg.sha512"
+    },
+    "MaterialDesignThemes/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aOZQShQuV7sCWOwO98dYz1S4stmIWDBH+Q6KoR3wDiDyuG7twoGnBDzQBhrxuS16I3GQiG5nfvUjEJFVc/zdKg==",
+      "path": "materialdesignthemes/3.2.0",
+      "hashPath": "materialdesignthemes.3.2.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.6.0": {
       "type": "package",
