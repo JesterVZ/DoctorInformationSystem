@@ -47,9 +47,6 @@ namespace AppointmentDoctor.View
                     case "Patient":
                         Patient = sQLite.ReturnPatient(sQLite.CheckFIO);
                         break;
-                    case "Admin":
-                        //Admin = sQLite.ReturnAdmin(sQLite.CheckFIO);
-                        break;
                 }
                 this.Close();
             }
@@ -79,10 +76,7 @@ namespace AppointmentDoctor.View
                     gender = typeItem.Content.ToString();
                     result = sQLite.Registration(RegLoginTextBox.Text, RegFIOTextBox.Text, Convert.ToInt32(RegAgeTextBox.Text), gender, " ", 0, 0, RegisterPasswordBox.Password, role);
                 }
-                if (AdminRadioButton.IsChecked == true)
-                {
-                    role = "Admin";
-                }
+
                 Role = sQLite.Role;
                 if (result)
                 {

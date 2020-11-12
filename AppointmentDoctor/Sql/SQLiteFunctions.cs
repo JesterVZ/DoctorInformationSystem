@@ -261,10 +261,6 @@ namespace AppointmentWithDoctor.SQL
             return null;
 
         }
-        public Admin ReturnAdmin(int id)
-        {
-            return new Admin();
-        }
         private SQLiteConnection Connect()
         {
             return new SQLiteConnection(@"Data Source=DataBase.db; Version=3;");

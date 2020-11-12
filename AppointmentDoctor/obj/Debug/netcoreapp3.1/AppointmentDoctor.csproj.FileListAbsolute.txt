@@ -36,3 +36,5 @@ C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcor
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\LoginWindow.baml
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\PatientCard.g.cs
+C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\PatientCard.baml

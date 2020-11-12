@@ -26,6 +26,7 @@ namespace AppointmentDoctor
     public partial class MainWindow : Window
     {
         private readonly LoginWindow loginWindow;
+        private PatientCard patientCard;
         private SQLiteFunctions sQLite;
         private OpenFileDialog fileDialog;
         private bool? dialogOk;
@@ -47,7 +48,7 @@ namespace AppointmentDoctor
                     DoctorTabControl.Visibility = Visibility.Hidden;
                     PatientTabControl.Visibility = Visibility.Visible;
                     sQLite = new SQLiteFunctions(DoctorsListView);
-                    FillTextBlocks(loginWindow.Patient.FIO, loginWindow.Patient.Age, loginWindow.Patient.Gender);
+                    OutputInformationAboutPatient(loginWindow.Patient.FIO, loginWindow.Patient.Age, loginWindow.Patient.Gender);
                     sQLite.SelectDoctors();
                     break;
                 case "Admin":
@@ -67,7 +68,7 @@ namespace AppointmentDoctor
                 return ((item as Doctor).Specialization.IndexOf(SearchTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0) || ((item as Doctor).FIO.IndexOf(SearchTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
         }
-        private void FillTextBlocks(string FIO, int Age, string Gender)
+        private void OutputInformationAboutPatient(string FIO, int Age, string Gender)
         {
             GenderTextBox.Text = Gender;
             FIOTextBox.Text = FIO;
@@ -179,6 +180,13 @@ namespace AppointmentDoctor
             };
             dialogOk = fileDialog.ShowDialog();
 
+        }
+
+        private void PatientListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Patient fio = (Patient)PatientListView.SelectedItem;
+            patientCard = new PatientCard(sQLite.ReturnPatient(fio.FIO));
+            patientCard.Show();
         }
     }
 }
