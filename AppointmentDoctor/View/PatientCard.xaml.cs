@@ -1,5 +1,6 @@
 ﻿using AppointmentDoctor.Model;
 using AppointmentWirhDoctor.model;
+using AppointmentWithDoctor.SQL;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,14 +21,18 @@ namespace AppointmentDoctor.View
     public partial class PatientCard : Window
     {
         public List<TagTemplate> TagList = new List<TagTemplate>();
+        private readonly SQLiteFunctions sQLite = new SQLiteFunctions();
         private readonly ColorGenerator ColorGenerator = new ColorGenerator();
+        private Card card;
         public PatientCard(Patient patient)
         {
             InitializeComponent();
+
             OutputInformationAboutPatient(patient);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            sQLite.ApplyChanges(card);
             this.Close();
         }
 
@@ -64,6 +69,20 @@ namespace AppointmentDoctor.View
             FIOTextBlock.DataContext = patient;
             AgeTextBlock.DataContext = patient;
             GenderTextBlock.DataContext = patient;
+        }
+        private void CreateCardEntity(Patient patient)
+        {
+            card = new Card
+            {
+                FIO = patient.FIO,
+                Age = patient.Age,
+                Gender = patient.Gender
+            };
+        }
+
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

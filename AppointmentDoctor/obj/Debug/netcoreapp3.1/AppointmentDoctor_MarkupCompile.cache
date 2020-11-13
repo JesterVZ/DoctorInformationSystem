@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\App.xaml
-3-1978978058
+4261381708
 
-15-919562458
+16-1202548355
 199-494197947
-MainWindow.xaml;View\LoginWindow.xaml;View\PatientCard.xaml;
+MainWindow.xaml;View\DiseaseHestory.xaml;View\LoginWindow.xaml;View\PatientCard.xaml;
 
 False
 

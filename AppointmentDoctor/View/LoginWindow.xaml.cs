@@ -25,7 +25,6 @@ namespace AppointmentDoctor.View
         SQLiteFunctions sQLite;
         public Doctor Doctor;
         public Patient Patient;
-        public Admin Admin;
         public string Role;
         public LoginWindow()
         {

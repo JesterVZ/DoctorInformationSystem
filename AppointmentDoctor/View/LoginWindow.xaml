@@ -50,7 +50,8 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
-    <Grid>  
+    <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="28*"/>
             <RowDefinition Height="387*"/>
@@ -68,6 +69,9 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White">Запись к врачу</TextBlock>
         </Grid>
         <TabControl Grid.Row="1">
+            <TabControl.Background>
+                <ImageBrush ImageSource="C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\img\background28.jpg" />
+            </TabControl.Background>
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -83,6 +87,7 @@
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
                                         <Setter TargetName="Panel" Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Foreground" Value="White"/>
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter TargetName="Panel" Property="Background" Value="White" />
@@ -96,11 +101,11 @@
             <TabItem Header="Вход">
                 <StackPanel Name="LoginStackPanel" Grid.Column="1" Width="220" Height="180">
                     <StackPanel Margin="0,0,0,20">
-                        <TextBlock HorizontalAlignment="Center">Логин</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Логин</TextBlock>
                         <TextBox Name="LoginTextBox"></TextBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,20">
-                        <TextBlock HorizontalAlignment="Center">Пароль</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Пароль</TextBlock>
                         <PasswordBox Name="PasswordTextBox"></PasswordBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20" HorizontalAlignment="Center">
@@ -111,19 +116,19 @@
             <TabItem Header="Регистрация">
                 <StackPanel Name="RegisterStackPanel" Grid.Column="1" Width="220" VerticalAlignment="Center" Visibility="Visible">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock HorizontalAlignment="Center">Логин</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Логин</TextBlock>
                         <TextBox Name="RegLoginTextBox"></TextBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock HorizontalAlignment="Center">ФИО</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">ФИО</TextBlock>
                         <TextBox Name="RegFIOTextBox"></TextBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock HorizontalAlignment="Center">Возраст</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Возраст</TextBlock>
                         <TextBox Name="RegAgeTextBox"></TextBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0" Name="RegGenderStackPanel">
-                        <TextBlock HorizontalAlignment="Center">Пол</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Пол</TextBlock>
                         <ComboBox Name="RegGenderComboBox">
                             <ComboBoxItem>Мужчина</ComboBoxItem>
                             <ComboBoxItem>Женщина</ComboBoxItem>
@@ -131,7 +136,7 @@
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0" Name="RegSpecializationStackPanel">
-                        <TextBlock HorizontalAlignment="Center">Специальность</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Специальность</TextBlock>
                         <ComboBox Name="RegSpecializationComboBox">
                             <ComboBoxItem>Терапевт</ComboBoxItem>
                             <ComboBoxItem>Уролог</ComboBoxItem>
@@ -144,22 +149,22 @@
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0" Name="RegOnHolydayStackPanel">
-                        <TextBlock HorizontalAlignment="Center">В отпуске?</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">В отпуске?</TextBlock>
                         <ComboBox Name="RegOnHolydayComboBox">
                             <ComboBoxItem>Да</ComboBoxItem>
                             <ComboBoxItem>Нет</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0" Name="RegWorkExperienceStackPanel">
-                        <TextBlock HorizontalAlignment="Center">Опыт работы</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Опыт работы</TextBlock>
                         <TextBox Name="RegWorkExperienceTextBox"></TextBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock HorizontalAlignment="Center">Пароль</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Пароль</TextBlock>
                         <PasswordBox Name="RegisterPasswordBox"></PasswordBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock HorizontalAlignment="Center">Повторите пароль</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black">Повторите пароль</TextBlock>
                         <PasswordBox Name="RepeatRegisterPasswordBox"></PasswordBox>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">

@@ -31,6 +31,22 @@ namespace AppointmentWithDoctor.SQL
             Patients = new List<Patient>();
             listViewFunctions = new ListViewFunctions();
         }
+        public void ApplyChanges(Card patientCard)
+        {
+            using SQLiteConnection Connection = Connect();
+            string commandText = "INSERT INTO [ParientCard] ([FIO], [Age], [Gender], [IsTakingMedication], [HaveHereditaryDiseases], [Diagnosis], [Treatment]) VALUES(@FIO, @Age, @Gender, @IsTakingMedication, @HaveHereditaryDiseases, @Diagnosis, @Treatment)";
+            SQLiteCommand Command = new SQLiteCommand(commandText, Connection);
+            Command.Parameters.AddWithValue("@FIO", patientCard.FIO);
+            Command.Parameters.AddWithValue("@Age", patientCard.Age);
+            Command.Parameters.AddWithValue("@Gender", patientCard.Gender);
+            Command.Parameters.AddWithValue("@IsTakingMedication", patientCard.IsTakingMedication);
+            Command.Parameters.AddWithValue("@HaveHereditaryDiseases", patientCard.HaveHereditaryDiseases);
+            Command.Parameters.AddWithValue("@Diagnosis", patientCard.Diagnosis);
+            Command.Parameters.AddWithValue("@Treatment", patientCard.Treatment);
+            Connection.Open();
+            Command.ExecuteNonQuery();
+            Connection.Close();
+        }
         public void SelectDoctors()
         {
             using SQLiteConnection Connection = Connect();

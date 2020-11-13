@@ -27,7 +27,8 @@ namespace AppointmentDoctor
     {
         private readonly LoginWindow loginWindow;
         private PatientCard patientCard;
-        private SQLiteFunctions sQLite;
+        private DiseaseHestory diseaseHestory;
+        private readonly SQLiteFunctions sQLite;
         private OpenFileDialog fileDialog;
         private bool? dialogOk;
         public MainWindow()
@@ -156,7 +157,7 @@ namespace AppointmentDoctor
 
         }
 
-        private void AddImageButton_Click(object sender, RoutedEventArgs e)
+        /*private void AddImageButton_Click(object sender, RoutedEventArgs e)
         {
             LoadImageAsync();
         }
@@ -180,13 +181,29 @@ namespace AppointmentDoctor
             };
             dialogOk = fileDialog.ShowDialog();
 
-        }
+        }*/
 
         private void PatientListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Patient fio = (Patient)PatientListView.SelectedItem;
             patientCard = new PatientCard(sQLite.ReturnPatient(fio.FIO));
             patientCard.Show();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void OpenHistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            diseaseHestory = new DiseaseHestory();
+            diseaseHestory.Show();
         }
     }
 }

@@ -38,3 +38,5 @@ C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\bin\Debug\netcor
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\PatientCard.g.cs
 C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\PatientCard.baml
+C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\DiseaseHestory.g.cs
+C:\Users\vladi\source\repos\AppointmentDoctor\AppointmentDoctor\obj\Debug\netcoreapp3.1\View\DiseaseHestory.baml

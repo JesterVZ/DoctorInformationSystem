@@ -1,0 +1,39 @@
+﻿<Window x:Class="AppointmentDoctor.View.DiseaseHestory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppointmentDoctor.View"
+        mc:Ignorable="d"
+        Title="DiseaseHestory" Height="450" Width="800">
+    <Grid>
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Height="200" VerticalAlignment="Top" Name="data" Loaded="DataGrid_Loaded">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО"  
+                             Binding="{Binding FIO}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Возраст"  
+                             Binding="{Binding Age}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Пол"  
+                             Binding="{Binding Gender}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Лечащий врач"  
+                             Binding="{Binding Doctor.FIO}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Принимает ли лекарства"  
+                             Binding="{Binding IsTakingMedication}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Есть ли геентические заболевания"  
+                             Binding="{Binding HaveHereditaryDiseases}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Диагноз" Width="60"  
+                             Binding="{Binding Diagnosis}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Лечение" Width="60"  
+                             Binding="{Binding Treatment}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
