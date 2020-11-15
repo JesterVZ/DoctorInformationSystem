@@ -65,7 +65,7 @@
 
                                     </Border>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Name="CloseButton" Grid.Column="0" Width="20" Background="Transparent" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Button Name="CloseButton" Grid.Column="0" Width="20" Background="Transparent" BorderBrush="{x:Null}" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Click="CloseButton_Click">
                                             <materialDesign:PackIcon Name="DeleteItemIcon" Kind="Close" Foreground="White" />
                                         </Button>
                                         <Label Foreground="White" Content="{Binding TagValue}"/>
@@ -85,27 +85,28 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock FontSize="16" Width="194" VerticalAlignment="Center">Принимает ли лекарства:</TextBlock>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <RadioButton Width="41">Да</RadioButton>
-                        <RadioButton>Нет</RadioButton>
+                        <RadioButton Name="LYesRB" Width="41">Да</RadioButton>
+                        <RadioButton Name="LNORB">Нет</RadioButton>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock FontSize="16" Width="280" VerticalAlignment="Center">Есть ли наследственные заболевания</TextBlock>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <RadioButton Width="41">Да</RadioButton>
-                        <RadioButton>Нет</RadioButton>
+                        <RadioButton Name="IYesRB" Width="41">Да</RadioButton>
+                        <RadioButton Name="INoRB">Нет</RadioButton>
                     </StackPanel>
                 </StackPanel>
 
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,291,0,138" Width="360">
                 <TextBlock FontSize="16" Width="68" HorizontalAlignment="Center">Диагноз</TextBlock>
-                <TextBox TextWrapping="Wrap" AcceptsReturn="True" Height="50"></TextBox>
+                <TextBox Name ="DiagnosisTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="50"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,370,0,59" Width="360">
                 <TextBlock FontSize="16" Width="68" HorizontalAlignment="Center">Лечение</TextBlock>
-                <TextBox TextWrapping="Wrap" AcceptsReturn="True" Height="50"></TextBox>
+                <TextBox Name="TreatmentTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="50"></TextBox>
             </StackPanel>
+            <Button Width="100" Height="20" Margin="350,454,350,34" Click="Button_Click">Добавить</Button>
         </Grid>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using AppointmentDoctor.Model;
 using AppointmentWirhDoctor.model;
 using AppointmentWithDoctor.model;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Threading;
@@ -34,11 +35,12 @@ namespace AppointmentWithDoctor.SQL
         public void ApplyChanges(Card patientCard)
         {
             using SQLiteConnection Connection = Connect();
-            string commandText = "INSERT INTO [ParientCard] ([FIO], [Age], [Gender], [IsTakingMedication], [HaveHereditaryDiseases], [Diagnosis], [Treatment]) VALUES(@FIO, @Age, @Gender, @IsTakingMedication, @HaveHereditaryDiseases, @Diagnosis, @Treatment)";
+            string commandText = "INSERT INTO [PatientCard] ([date], [FIO], [Age], [Reports], [IsTakingMedication], [HaveHereditaryDiseases], [Diagnosis], [Treatment]) VALUES(@date, @FIO, @Age, @Reports, @IsTakingMedication, @HaveHereditaryDiseases, @Diagnosis, @Treatment)";
             SQLiteCommand Command = new SQLiteCommand(commandText, Connection);
+            Command.Parameters.AddWithValue("@date", patientCard.Time);
             Command.Parameters.AddWithValue("@FIO", patientCard.FIO);
             Command.Parameters.AddWithValue("@Age", patientCard.Age);
-            Command.Parameters.AddWithValue("@Gender", patientCard.Gender);
+            Command.Parameters.AddWithValue("@Reports", patientCard.Reports);
             Command.Parameters.AddWithValue("@IsTakingMedication", patientCard.IsTakingMedication);
             Command.Parameters.AddWithValue("@HaveHereditaryDiseases", patientCard.HaveHereditaryDiseases);
             Command.Parameters.AddWithValue("@Diagnosis", patientCard.Diagnosis);
@@ -237,6 +239,11 @@ namespace AppointmentWithDoctor.SQL
                     Command = new SQLiteCommand(commandText, Connection);
                     Command.Parameters.AddWithValue("@FIO", fio);
                     return Command.ExecuteReader();
+                case "Card":
+                    commandText = "SELECT * FROM PatientCard where FIO = @FIO;";
+                    Command = new SQLiteCommand(commandText, Connection);
+                    Command.Parameters.AddWithValue("@FIO", fio);
+                    return Command.ExecuteReader();
             }
             return null;
         }
@@ -264,7 +271,6 @@ namespace AppointmentWithDoctor.SQL
             using SQLiteConnection Connection = Connect();
             Connection.Open();
             SQLiteDataReader rdr = Reader(Connection, "", "", "Patient", fio);
-            //string gender = (string)rdr["Gender"];
             while (rdr.Read())
             {
                 return new Patient
@@ -276,6 +282,43 @@ namespace AppointmentWithDoctor.SQL
             }
             return null;
 
+        }
+        public List<Card> ReturnCard(string fio)
+        {
+            using SQLiteConnection Connection = Connect();
+            Connection.Open();
+            SQLiteDataReader rdr = Reader(Connection, "", "", "Card", fio);
+            List<Card> cards = new List<Card>();
+            while (rdr.Read())
+            {
+                bool bool1, bool2;
+                if((int)(long)rdr["IsTakingMedication"] == 1)
+                {
+                    bool1 = true;
+                } else
+                {
+                    bool1 = false;
+                }
+                if((int)(long)rdr["HaveHereditaryDiseases"] == 1)
+                {
+                    bool2 = true;
+                } else
+                {
+                    bool2 = false;
+                }
+                cards.Add(new Card
+                {
+                    FIO = (string)rdr["FIO"],
+                    Age = (int)(long)rdr["Age"],
+                    Reports = (string)rdr["Reports"],
+                    IsTakingMedication = bool1,
+                    HaveHereditaryDiseases = bool2,
+                    Diagnosis = (string)rdr["Diagnosis"],
+                    Treatment = (string)rdr["Treatment"],
+                    Time = (DateTime)rdr["date"]
+                });
+            }
+            return cards;
         }
         private SQLiteConnection Connect()
         {

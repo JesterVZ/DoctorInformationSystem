@@ -1,4 +1,5 @@
-﻿using AppointmentDoctor.View;
+﻿using AppointmentDoctor.Model;
+using AppointmentDoctor.View;
 using AppointmentDoctor.ViewModel;
 using AppointmentWirhDoctor.model;
 using AppointmentWithDoctor.SQL;
@@ -185,9 +186,7 @@ namespace AppointmentDoctor
 
         private void PatientListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Patient fio = (Patient)PatientListView.SelectedItem;
-            patientCard = new PatientCard(sQLite.ReturnPatient(fio.FIO));
-            patientCard.Show();
+
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -202,8 +201,18 @@ namespace AppointmentDoctor
 
         private void OpenHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            diseaseHestory = new DiseaseHestory();
+            Patient fio = (Patient)PatientListView.SelectedItem;
+            Patient patient = sQLite.ReturnPatient(fio.FIO);
+            diseaseHestory = new DiseaseHestory(sQLite.ReturnCard(patient.FIO));
             diseaseHestory.Show();
+        }
+
+        private void PatientListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Patient fio = (Patient)PatientListView.SelectedItem;
+            Patient patient = sQLite.ReturnPatient(fio.FIO);
+            patientCard = new PatientCard(sQLite.ReturnPatient(patient.FIO));
+            patientCard.Show();
         }
     }
 }

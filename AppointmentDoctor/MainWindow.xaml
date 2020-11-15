@@ -87,7 +87,7 @@
             </TabItem>
             <TabItem Header="Список пациентов">
                 <StackPanel Orientation="Vertical">
-                    <ListView Name="PatientListView" Height="200" SelectionChanged="PatientListView_SelectionChanged" >
+                    <ListView Name="PatientListView" Height="200" MouseDoubleClick="PatientListView_MouseDoubleClick" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>

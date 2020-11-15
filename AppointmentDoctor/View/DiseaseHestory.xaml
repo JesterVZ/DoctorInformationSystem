@@ -7,19 +7,25 @@
         mc:Ignorable="d"
         Title="DiseaseHestory" Height="450" Width="800">
     <Grid>
-        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Height="200" VerticalAlignment="Top" Name="data" Loaded="DataGrid_Loaded">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Width="33">ФИО: </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Name="FioTextBlock"></TextBlock>
+                </StackPanel>
+                <StackPanel Margin="10,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Width="49">Возраст: </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Name="AgeTextBlock"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Height="200" VerticalAlignment="Top" Name="data" Loaded="DataGrid_Loaded" Margin="0,61,0,0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО"  
-                             Binding="{Binding FIO}">
+                <DataGridTextColumn Header="дата обращения"  
+                             Binding="{Binding Time}">
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Возраст"  
-                             Binding="{Binding Age}">
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Пол"  
-                             Binding="{Binding Gender}">
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Лечащий врач"  
-                             Binding="{Binding Doctor.FIO}">
+                <DataGridTextColumn Header="жалобы"  
+                             Binding="{Binding Reports}">
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Принимает ли лекарства"  
                              Binding="{Binding IsTakingMedication}">

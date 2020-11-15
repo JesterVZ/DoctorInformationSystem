@@ -1,5 +1,6 @@
 ﻿using AppointmentDoctor.Model;
 using AppointmentWirhDoctor.model;
+using AppointmentWithDoctor.model;
 using AppointmentWithDoctor.SQL;
 using System;
 using System.Collections.Generic;
@@ -24,14 +25,17 @@ namespace AppointmentDoctor.View
         private readonly SQLiteFunctions sQLite = new SQLiteFunctions();
         private readonly ColorGenerator ColorGenerator = new ColorGenerator();
         private Card card;
+        private Patient Patient;
+        private ListViewFunctions ListViewFunctions = new ListViewFunctions();
         public PatientCard(Patient patient)
         {
             InitializeComponent();
-
+            Patient = patient;
             OutputInformationAboutPatient(patient);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            CreateCardEntity(Patient);
             sQLite.ApplyChanges(card);
             this.Close();
         }
@@ -72,17 +76,54 @@ namespace AppointmentDoctor.View
         }
         private void CreateCardEntity(Patient patient)
         {
+            string reports = "";
+            for (int i = 0; i < TagList.Count; i++){
+                if(i < TagList.Count-1)
+                {
+                    reports += TagList[i].TagValue + ", ";
+                } else
+                {
+                    reports += TagList[i].TagValue;
+                }
+            }
+            bool haveHereditaryDiseases;
+            if (LYesRB.IsChecked == true)
+            {
+                haveHereditaryDiseases = true;
+            }
+            else
+            {
+                haveHereditaryDiseases = false;
+            }
+            bool isTakingMedication;
+            if (IYesRB.IsChecked == true)
+            {
+                isTakingMedication = true;
+            }
+            else
+            {
+                isTakingMedication = false;
+            }
+
             card = new Card
             {
                 FIO = patient.FIO,
                 Age = patient.Age,
-                Gender = patient.Gender
+                Gender = patient.Gender,
+                Doctor = patient.Doctor,
+                HaveHereditaryDiseases = haveHereditaryDiseases,
+                IsTakingMedication = isTakingMedication,
+                Diagnosis = DiagnosisTextBox.Text,
+                Treatment = TreatmentTextBox.Text,
+                Reports = reports,
+                Time = DateTime.Now
             };
         }
 
-        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            TagList.RemoveAt(ListViewFunctions.GetHoverIndex(TagsListView));
+            CollectionViewSource.GetDefaultView(TagsListView.ItemsSource).Refresh();
         }
     }
 }

@@ -19,49 +19,31 @@ namespace AppointmentDoctor.View
     /// </summary>
     public partial class DiseaseHestory : Window
     {
-        public DiseaseHestory()
+        List<Card> Cards;
+        public DiseaseHestory(List<Card> cards)
         {
-            InitializeComponent();
+            try
+            {
+                Cards = cards;
+                InitializeComponent();
+                OutputOnformation(cards[0]);
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        private void OutputOnformation(Card card)
+        {
+            FioTextBlock.Text = card.FIO;
+            AgeTextBlock.Text = card.Age.ToString();
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Card> cards = new List<Card>();
-            cards.Add(new Card
-            {
-                FIO = "ываыа ываыва ываыва",
-                Age = 16,
-                Gender = "Мужчина",
-                Diagnosis = "еблан",
-                HaveHereditaryDiseases = false,
-                Treatment = "вафаываыва",
-                IsTakingMedication = false,
-                Doctor = new Doctor
-                {
-                    FIO = "вава ываываыв ваываваы ваыв"
-                }
-            });
-            cards.Add(new Card
-            {
-                FIO = "ываыа ываыва ываыва",
-                Age = 16,
-                Gender = "Мужчина",
-                Diagnosis = "еблан",
-                HaveHereditaryDiseases = false,
-                Treatment = "вафаываыва",
-                IsTakingMedication = false
-            });
-            cards.Add(new Card
-            {
-                FIO = "ываыа ываыва ываыва",
-                Age = 16,
-                Gender = "Мужчина",
-                Diagnosis = "еблан",
-                HaveHereditaryDiseases = false,
-                Treatment = "вафаываыва",
-                IsTakingMedication = false
-            });
-            data.ItemsSource = cards;
+            data.ItemsSource = Cards;
         }
     }
 }
