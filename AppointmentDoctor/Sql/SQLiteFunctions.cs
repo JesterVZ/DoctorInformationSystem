@@ -14,9 +14,9 @@ namespace AppointmentWithDoctor.SQL
     {
         private readonly List<Doctor> Doctors;
         private readonly List<Patient> Patients;
+        private readonly Notifications notifications = new Notifications();
         readonly ListViewFunctions listViewFunctions;
         readonly ListView ListView;
-        private Notifications notifications = new Notifications();
         public string Role;
         public string CheckFIO;
         public SQLiteFunctions(ListView listView)

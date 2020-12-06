@@ -39,7 +39,7 @@
             </Button>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White">Запись к врачу</TextBlock>
         </Grid>
-        <TabControl Name="DoctorTabControl" Visibility="Visible" Grid.Row="1">
+        <TabControl Name="DoctorTabControl" Visibility="Hidden" Grid.Row="1">
             <TabItem Header="Карточка врача">
 
                 <StackPanel Grid.Column="0" Orientation="Vertical">
@@ -103,7 +103,7 @@
 
         </TabControl>
 
-        <TabControl Name="PatientTabControl" Visibility="Hidden" Grid.Row="1">
+        <TabControl Name="PatientTabControl" Visibility="Visible" Grid.Row="1">
             <TabItem Header="Карточка пациента">
                 <StackPanel Grid.Column="0" Orientation="Vertical">
                     <TextBlock HorizontalAlignment="Center" FontSize="16">Информация о пациенте</TextBlock>
